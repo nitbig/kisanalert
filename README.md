@@ -39,13 +39,13 @@ Kisan Alert is an AI-powered multilingual platform that provides
 
 ## Tech Stack
 
-React
-TypeScript
-Vite
-Express
-Gemini API
-Google Search Grounding
-Open Meteo
+React, 
+TypeScript, 
+Vite,
+Express,
+Gemini API,
+Google Search Grounding,
+Open Meteo,
 Node.js
 
 ---
