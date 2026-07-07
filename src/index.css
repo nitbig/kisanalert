@@ -1,0 +1,55 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap');
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-sans: "Montserrat", "Poppins", ui-sans-serif, system-ui, sans-serif;
+}
+
+body {
+  @apply bg-[#FAFAF7] text-[#1E2320] dark:bg-[#121212] dark:text-[#FAFAF7];
+  letter-spacing: 0.015em;
+  line-height: 1.6;
+}
+
+/* Hide Google Translate Banner and adjust styles */
+.goog-te-banner-frame.skiptranslate {
+  display: none !important;
+}
+body {
+  top: 0px !important;
+}
+.goog-tooltip {
+  display: none !important;
+}
+.goog-tooltip:hover {
+  display: none !important;
+}
+.goog-text-highlight {
+  background-color: transparent !important;
+  border: none !important; 
+  box-shadow: none !important;
+}
+#google_translate_element select {
+  background: transparent;
+  border: none;
+  color: inherit;
+  font-family: inherit;
+  font-size: 0.875rem;
+  outline: none;
+  cursor: pointer;
+}
+#google_translate_element select option {
+  color: #1E2320;
+}
+.dark #google_translate_element select option {
+  color: #FAFAF7;
+  background: #1E1E1E;
+}
+.goog-te-gadget {
+  color: transparent !important;
+}
+.goog-te-gadget .goog-te-combo {
+  margin: 0;
+}

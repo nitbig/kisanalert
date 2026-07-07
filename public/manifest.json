@@ -1,0 +1,16 @@
+{
+  "name": "Kisan Alert",
+  "short_name": "Kisan",
+  "description": "Smart Crop Advisory and Farmer Intelligence System",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#FAFAF7",
+  "theme_color": "#3C8B5C",
+  "icons": [
+    {
+      "src": "/logo-mark.svg",
+      "sizes": "192x192 512x512",
+      "type": "image/svg+xml"
+    }
+  ]
+}
