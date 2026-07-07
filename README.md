@@ -50,6 +50,11 @@ Node.js
 
 ---
 
+## Deployment(visit prototype)
+
+https://kisanalert.netlify.app/
+
+---
 ## Installation
 
 npm install
