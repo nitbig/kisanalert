@@ -1,68 +1,149 @@
 # Kisan Alert
 
-Smart Crop Advisory & Farmer Intelligence System
+**AI-powered crop advisory and farmer intelligence system for smallholder farmers in India.**
+
+Built for the "Build with AI for Communities" hackathon (Google Cloud track).
+
+[Live Demo](#) Â· [Pitch Deck](#) Â· [Report a Bug](../../issues)
 
 ---
 
-## Problem
+## The Problem
 
-Millions of smallholder farmers lack timely, localized agricultural advice,
-leading to crop failure, excessive water usage, and income loss.
+Smallholder farmers in India often lack timely, localized access to crop health information,
+weather-driven risk alerts, and actionable agronomic advice â€” the kind of guidance that larger
+commercial farms get from agronomists or expensive advisory services. Language barriers,
+low connectivity, and fragmented information sources make this worse.
 
----
+## What Kisan Alert Does
 
-## Solution
+Kisan Alert gives smallholder farmers a simple way to get **AI-generated crop advisory**
+based on their location, crop type, and current conditions â€” surfaced through a lightweight
+web interface designed for low-bandwidth, low-literacy contexts.
 
-Kisan Alert is an AI-powered multilingual platform that provides
+- ðŸ“ **Localized advisory** â€” location and crop-specific recommendations
+- ðŸŒ¦ï¸ **Risk alerts** â€” weather/pest/disease risk flagged proactively
+- ðŸ—£ï¸ **[Multilingual support]** â€” advisory delivered in [languages supported]
+- ðŸ¤– **AI-generated guidance** â€” powered by Google AI (Gemini) for natural-language advisory generation
+- ðŸ“Š **[Dashboard/history]** â€” farmers can track past advisories and outcomes
 
-• Crop recommendation
-• Crop disease diagnosis
-• Weather advisory
-• Dry spell prediction
-• Market prices
-• Human expert escalation
+> Fill in / trim the above to match what's actually implemented vs. planned.
 
----
+## Architecture
 
-## Features
+```
+â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”      â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”      â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”
+â”‚  React + Vite    â”‚ â”€â”€â”€â–¶ â”‚  Express/Node API â”‚ â”€â”€â”€â–¶ â”‚  Google AI (Gemini)  â”‚
+â”‚  (TypeScript)     â”‚      â”‚                   â”‚      â”‚  + [Weather/Data API]â”‚
+â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜      â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜      â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜
+                                    â”‚
+                                    â–¼
+                          â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”
+                          â”‚  [Database, if any]â”‚
+                          â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜
+```
 
-✓ AI Crop Recommendation
-✓ Image Disease Detection
-✓ Weather Forecast
-✓ SMS Alerts
-✓ Market Prices
-✓ Offline Knowledge Base
-✓ Expert Console
-✓ Multilingual Chat
+**Frontend:** React, TypeScript, Vite
+**Backend:** Express / Node.js
+**AI layer:** Google AI (Gemini API) for advisory generation
+**Deployment:** Google Cloud Run
+**[Data sources]:** [e.g. weather API, soil data, crop database]
 
----
+## Why These Choices
 
-## Tech Stack
+A few notes on tradeoffs, since this is often what gets asked in review:
 
-React, 
-TypeScript, 
-Vite,
-Express,
-Gemini API,
-Google Search Grounding,
-Open Meteo,
-Node.js
+- **Vite over CRA** â€” faster dev iteration, smaller bundle for low-bandwidth users
+- **Express over a heavier framework** â€” kept the API surface small and easy to reason about for a hackathon timeline, though [note here if you'd reconsider this for scale]
+- **Gemini for advisory generation** â€” chosen for [cost / Google Cloud alignment / multimodal support]; tradeoff is [latency / cost per call / rate limits] which is mitigated by [caching / batching / etc., if applicable]
+- **Cloud Run for deployment** â€” scales to zero, keeps cost near-zero for a project with sporadic hackathon-demo traffic, and keeps it aligned with the Google Cloud track
 
----
+## Getting Started
 
-## Deployment(visit prototype)
+### Prerequisites
+- Node.js 18+
+- A Google AI API key ([get one here](https://ai.google.dev/))
+- [Any other API keys â€” weather, maps, etc.]
 
-https://kisanalert.netlify.app/
+### Installation
 
----
-## Installation
-
+```bash
+git clone https://github.com/[your-username]/kisan-alert.git
+cd kisan-alert
 npm install
+```
 
-cp .env.example .env
+### Environment Variables
 
-Add
+Create a `.env` file in the root:
 
-GEMINI_API_KEY=
+```
+GOOGLE_AI_API_KEY=your_key_here
+[OTHER_API_KEY]=your_key_here
+PORT=3000
+```
 
+### Running Locally
+
+```bash
+# Start the backend
+cd server
 npm run dev
+
+# In a separate terminal, start the frontend
+cd client
+npm run dev
+```
+
+Visit `http://localhost:5173` (or your Vite port).
+
+### Deployment (Cloud Run)
+
+```bash
+gcloud builds submit --tag gcr.io/[project-id]/kisan-alert
+gcloud run deploy kisan-alert --image gcr.io/[project-id]/kisan-alert --platform managed
+```
+
+## Project Structure
+
+```
+kisan-alert/
+â”œâ”€â”€ client/              # React + TS + Vite frontend
+â”‚   â”œâ”€â”€ src/
+â”‚   â””â”€â”€ ...
+â”œâ”€â”€ server/               # Express/Node backend
+â”‚   â”œâ”€â”€ routes/
+â”‚   â”œâ”€â”€ services/         # Google AI integration lives here
+â”‚   â””â”€â”€ ...
+â”œâ”€â”€ README.md
+â””â”€â”€ ...
+```
+
+## Roadmap
+
+- [ ] SMS/WhatsApp-based alert delivery for farmers without reliable data access
+- [ ] Voice-input for low-literacy users
+- [ ] Offline-first PWA support
+- [ ] Expanded crop/region coverage
+- [ ] [Whatever you pick as your "one new feature" before applying]
+
+## Testing
+
+```bash
+npm test
+```
+
+> [Fill in actual coverage â€” even a handful of meaningful tests on the AI-response parsing or API routes is worth noting explicitly here.]
+
+## Contributing
+
+This started as a hackathon project but is open to contributions. Please open an issue before
+submitting a PR for anything beyond small fixes.
+
+## License
+
+[MIT / Apache 2.0 / etc.]
+
+## Acknowledgments
+
+Built for the "Build with AI for Communities" hackathon, Google Cloud track.
