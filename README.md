@@ -1,4 +1,4 @@
-# Kisan Alert
+# ðŸŒ¾ Kisan Alert
 
 **AI-powered crop advisory and farmer intelligence system for smallholder farmers in India.**
 
@@ -102,17 +102,14 @@ gcloud run deploy kisan-alert --image gcr.io/[project-id]/kisan-alert --platform
 
 ## Project Structure
 
-```
-kisan-alert/
-â”œâ”€â”€ client/              # React + TS + Vite frontend
-â”‚   â”œâ”€â”€ src/
-â”‚   â””â”€â”€ ...
-â”œâ”€â”€ server/               # Express/Node backend
-â”‚   â”œâ”€â”€ routes/
-â”‚   â”œâ”€â”€ services/         # Google AI integration lives here
-â”‚   â””â”€â”€ ...
-â”œâ”€â”€ README.md
-â””â”€â”€ ...
+```mermaid
+flowchart TD
+    A[kisan-alert/] --> B[client/]
+    B --> B1[src/]
+    A --> C[server/]
+    C --> C1[routes/]
+    C --> C2[services/ - Google AI integration]
+    A --> D[README.md]
 ```
 
 ## Roadmap
