@@ -1,4 +1,4 @@
-# Kisan Alert
+# ðŸŒ¾ Kisan Alert
 
 **AI-powered crop advisory and farmer intelligence system for smallholder farmers in India.**
 
@@ -31,16 +31,12 @@ web interface designed for low-bandwidth, low-literacy contexts.
 
 ## Architecture
 
-```
-â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”      â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”      â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”
-â”‚  React + Vite    â”‚ â”€â”€â”€â–¶ â”‚  Express/Node API â”‚ â”€â”€â”€â–¶ â”‚  Google AI (Gemini)  â”‚
-â”‚  (TypeScript)     â”‚      â”‚                   â”‚      â”‚  + [Weather/Data API]â”‚
-â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜      â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜      â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜
-                                    â”‚
-                                    â–¼
-                          â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”
-                          â”‚  [Database, if any]â”‚
-                          â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜
+```mermaid
+flowchart LR
+    A[React + Vite<br/>TypeScript] --> B[Express / Node API]
+    B --> C[Google AI - Gemini]
+    B --> D[Weather / Data API]
+    B --> E[(Database, if any)]
 ```
 
 **Frontend:** React, TypeScript, Vite
@@ -89,6 +85,64 @@ PORT=3000
 # Start the backend
 cd server
 npm run dev
+
+# In a separate terminal, start the frontend
+cd client
+npm run dev
+```
+
+Visit `http://localhost:5173` (or your Vite port).
+
+### Deployment (Cloud Run)
+
+```bash
+gcloud builds submit --tag gcr.io/[project-id]/kisan-alert
+gcloud run deploy kisan-alert --image gcr.io/[project-id]/kisan-alert --platform managed
+```
+
+## Project Structure
+
+```
+kisan-alert/
+â”œâ”€â”€ client/              # React + TS + Vite frontend
+â”‚   â”œâ”€â”€ src/
+â”‚   â””â”€â”€ ...
+â”œâ”€â”€ server/               # Express/Node backend
+â”‚   â”œâ”€â”€ routes/
+â”‚   â”œâ”€â”€ services/         # Google AI integration lives here
+â”‚   â””â”€â”€ ...
+â”œâ”€â”€ README.md
+â””â”€â”€ ...
+```
+
+## Roadmap
+
+- [ ] SMS/WhatsApp-based alert delivery for farmers without reliable data access
+- [ ] Voice-input for low-literacy users
+- [ ] Offline-first PWA support
+- [ ] Expanded crop/region coverage
+- [ ] [Whatever you pick as your "one new feature" before applying]
+
+## Testing
+
+```bash
+npm test
+```
+
+> [Fill in actual coverage â€” even a handful of meaningful tests on the AI-response parsing or API routes is worth noting explicitly here.]
+
+## Contributing
+
+This started as a hackathon project but is open to contributions. Please open an issue before
+submitting a PR for anything beyond small fixes.
+
+## License
+
+[MIT / Apache 2.0 / etc.]
+
+## Acknowledgments
+
+Built for the "Build with AI for Communities" hackathon, Google Cloud track.npm run dev
 
 # In a separate terminal, start the frontend
 cd client
