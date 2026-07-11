@@ -1,4 +1,5 @@
-# ðŸŒ¾ Kisan Alert
+# 
+Kisan Alert
 
 **AI-powered crop advisory and farmer intelligence system for smallholder farmers in India.**
 
@@ -17,15 +18,15 @@ low connectivity, and fragmented information sources make this worse.
 
 ## What Kisan Alert Does
 
-Kisan Alert gives smallholder farmers a simple way to get **AI-generated crop advisory**
+Kisan Alert gives smallholder farmers a simple way to get **AI-generated crop advisoryp**
 based on their location, crop type, and current conditions â€” surfaced through a lightweight
 web interface designed for low-bandwidth, low-literacy contexts.
 
-- ðŸ“ **Localized advisory** â€” location and crop-specific recommendations
-- ðŸŒ¦ï¸ **Risk alerts** â€” weather/pest/disease risk flagged proactively
-- ðŸ—£ï¸ **[Multilingual support]** â€” advisory delivered in [languages supported]
-- ðŸ¤– **AI-generated guidance** â€” powered by Google AI (Gemini) for natural-language advisory generation
-- ðŸ“Š **[Dashboard/history]** â€” farmers can track past advisories and outcomes
+- **Localized advisory** â€” location and crop-specific recommendations
+- **Risk alerts** â€” weather/pest/disease risk flagged proactively
+- **[Multilingual support]** â€” advisory delivered in [languages supported]
+- **AI-generated guidance** â€” powered by Google AI (Gemini) for natural-language advisory generation
+- **[Dashboard/history]** â€” farmers can track past advisories and outcomes
 
 > Fill in / trim the above to match what's actually implemented vs. planned.
 
