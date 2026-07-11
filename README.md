@@ -1,5 +1,4 @@
-# 
-Kisan Alert
+# Kisan Alert
 
 **AI-powered crop advisory and farmer intelligence system for smallholder farmers in India.**
 
