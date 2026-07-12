@@ -4,7 +4,7 @@ l# Kisan Alert
 
 Built for the "Build with AI for Communities" hackathon (Google Cloud track).
 
-[Live [Demo]()](https://kisanalert.netlify.app/) Â· [Pitch Deck](https://drive.google.com/file/d/1y25J4TKJ7hJ-Q5OTKquw_KpLoN-XqiK9/view?usp=drivesdk) Â· [Report a Bug](mailto: nitishkr13245@gmail.com)
+[Live Demo](https://kisanalert.netlify.app/) Â· [Pitch Deck](https://drive.google.com/file/d/1y25J4TKJ7hJ-Q5OTKquw_KpLoN-XqiK9/view?usp=drivesdk) Â· [Report a Bug](mailto: nitishkr13245@gmail.com)
 
 ---
 
